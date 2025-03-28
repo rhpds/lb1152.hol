@@ -2,10 +2,9 @@
 - name: Edit /etc/hosts file
   ansible.builtin.lineinfile:
     dest: /etc/hosts
-    regexp: '^satellite.q7n6f.sandbox11.opentlc.com'
+    regexp: '^.*satellite.q7n6f.sandbox11.opentlc.com'
     line: ''
     state: present
-  ignore_errors: true
 
 - name: Configure satellite admin password
   ansible.builtin.command: "foreman-rake permissions:reset password={{ lb1152_hol_satellite_reconfigure_user_password }}"
@@ -22,8 +21,8 @@
     state: directory
     owner: root
     group: root
-    mode: 0750
-  with_items:
+    mode: u+rwx,g+rx,o-rwx
+  loop:
     - /etc/letsencrypt
     - /var/lib/letsencrypt
 
