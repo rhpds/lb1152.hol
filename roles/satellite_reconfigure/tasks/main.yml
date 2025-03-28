@@ -162,7 +162,7 @@
     src: /etc/letsencrypt/archive
     dest: "{{ item }}"
     remote_src: true
-    mode: u+rw,g-rx,o-rx
+    mode: u+rwx,g+rx,o+rx
   loop:
     - /
     - /root/
