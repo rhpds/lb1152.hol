@@ -162,11 +162,17 @@
     src: /etc/letsencrypt/archive
     dest: "{{ item }}"
     remote_src: true
-    mode: u+rwx,g+rx,o+rx
+    mode: u+rwx,g-rx,o-rx
   loop:
-    - /
     - /root/
     - /etc/pki/
+
+- name: Copy archive directory
+  ansible.builtin.copy:
+    src: /etc/letsencrypt/archive
+    dest: /
+    remote_src: true
+    mode: u+rwx,g+rx,o+rx
 
 - name: Update satellite with LetsEncrypt cert and enable registration and template modules
   ansible.builtin.shell: >-
