@@ -12,6 +12,10 @@
   ansible.builtin.include_tasks:
     file: pgsql.yml
 
+- name: Include user settings
+  ansible.builtin.include_tasks:
+    file: user.yml
+
 - name: Include un register host
   ansible.builtin.include_tasks:
     file: unsubscribe.yml

@@ -1,4 +1,8 @@
 ---
+- name: Include user settings
+  ansible.builtin.include_tasks:
+    file: user.yml
+
 - name: Edit /etc/hosts file
   ansible.builtin.lineinfile:
     dest: /etc/hosts
