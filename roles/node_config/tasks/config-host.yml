@@ -21,8 +21,8 @@
 - name: Register node with Red Hat Insights
   ansible.builtin.command: >-
     rhc connect
-    -o {{ lb1152_satellite_node_config_insights_org }}
-    -a {{ lb1152_satellite_node_config_insights_activation_key }}
+    -o {{ lb1152_hol_node_config_insights_org }}
+    -a {{ lb1152_hol_node_config_insights_activation_key }}
 
 - name: Run insights-client to generate config files
   ansible.builtin.command: insights-client --collector malware-detection
