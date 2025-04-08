@@ -1,7 +1,7 @@
 ---
 - name: Copy SSH files
   ansible.builtin.copy:
-    src: "/home/{{ lb1152_hol_node_config_lab_user }}/.ssh/{{ item }}"
+    src: "/home/{{ lb1152_hol_satellite_reconfigure_lab_user }}/.ssh/{{ item }}"
     dest: /root/.ssh/
     remote_src: true
     owner: root
