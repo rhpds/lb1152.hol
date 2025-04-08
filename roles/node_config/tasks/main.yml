@@ -1,0 +1,8 @@
+---
+- name: Include register host tasks
+  ansible.builtin.include_tasks:
+    file: register-host.yml
+
+- name: Config host tasks
+  ansible.builtin.include_tasks:
+    file: config-host.yml
