@@ -1,8 +1,25 @@
 ---
-- name: Include register host tasks
-  ansible.builtin.include_tasks:
-    file: register-host.yml
+- name: Install packages
+  ansible.builtin.package:
+    name:
+      - rhc-worker-playbook
+      - yara
+      - scap-security-guide
+      - postgresql-server
+    state: present
 
-- name: Config host tasks
+- name: Run PostgreSQL
   ansible.builtin.include_tasks:
-    file: config-host.yml
+    file: pgsql.yml
+
+- name: Include un register host
+  ansible.builtin.include_tasks:
+    file: unsubscribe.yml
+
+- name: Include register with private satellite
+  ansible.builtin.include_tasks:
+    file: subscribe.yml
+
+- name: Include register with insights
+  ansible.builtin.include_tasks:
+    file: insights.yml
