@@ -17,7 +17,6 @@
 
 - name: Update CA Trust Bundle
   ansible.builtin.command: update-ca-trust
-  delegate_to: "{{ _hostname_ }}"
 
 - name: Find current repository files
   ansible.builtin.find:
