@@ -179,17 +179,3 @@
 
 - name: Refresh the manifest
   ansible.builtin.command: 'hammer subscription refresh-manifest --organization="Default Organization"'
-
-- name: print satellite user.info
-  agnosticd_user_info:
-    msg: |
-      Satellite URL: https://{{ lb1152_hol_satellite_reconfigure_external_fqdn }}
-      Satellite User: {{ lb1152_hol_satellite_reconfigure_user_name }}
-      Satellite User Password: {{ lb1152_hol_satellite_reconfigure_user_password }}
-
-- name: Save user data
-  agnosticd_user_info:
-    data:
-      workshop_satellite_url: "https://{{ lb1152_hol_satellite_reconfigure_external_fqdn }}"
-      workshop_satellite_user_name: "{{ lb1152_hol_satellite_reconfigure_user_name }}"
-      workshop_satellite_user_password: "{{ lb1152_hol_satellite_reconfigure_user_password }}"
