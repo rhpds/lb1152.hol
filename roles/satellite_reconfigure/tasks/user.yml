@@ -25,3 +25,37 @@
     regexp: ".*User ec2-user$"
     line: "  User root"
     path: /root/.ssh/config
+
+- name: Set temp access
+  ansible.builtin.file:
+    path: /var/lib/foreman-proxy/ssh
+    state: directory
+    mode: u+rwx,g+rx,o+rx
+
+- name: Read ssh publickey
+  ansible.builtin.set_fact:
+    foreman_proxy_ssh_pub_key_content: "{{ lookup('file', '/var/lib/foreman-proxy/ssh/id_rsa_foreman_proxy.pub') }}"
+
+- name: Remove temp access
+  ansible.builtin.file:
+    path: /var/lib/foreman-proxy/ssh
+    state: directory
+    mode: u+rwx,g-rx,o-rx
+
+- name: Print key
+  ansible.builtin.debug:
+    msg: "{{ foreman_proxy_ssh_pub_key_content }}"
+
+- name: Inset publickey in authorized_keys
+  ansible.builtin.lineinfile:
+    path: /root/.ssh/authorized_keys
+    insertafter: 'EOF'
+    line: "{{ foreman_proxy_ssh_pub_key_content }}"
+  delegate_to: "{{ groups['nodes'][0] }}"
+
+- name: Inset publickey in authorized_keys
+  ansible.builtin.lineinfile:
+    path: /root/.ssh/authorized_keys
+    insertafter: 'EOF'
+    line: "{{ foreman_proxy_ssh_pub_key_content }}"
+  delegate_to: "{{ groups['nodes'][1] }}"
