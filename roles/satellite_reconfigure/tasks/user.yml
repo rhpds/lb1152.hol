@@ -40,7 +40,7 @@
 
 - name: Read ssh publickey
   ansible.builtin.set_fact:
-    foreman_proxy_ssh_pub_key_content: "{{ lookup('file', '/tmp/id_rsa_foreman_proxy.pub') }}"
+    foreman_proxy_ssh_pub_key_content: "{{ lookup('ansible.builtin.file', '/tmp/id_rsa_foreman_proxy.pub') }}"
 
 - name: Remove temp access
   ansible.builtin.file:
