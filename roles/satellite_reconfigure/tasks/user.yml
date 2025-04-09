@@ -32,16 +32,14 @@
     state: directory
     mode: u+rwx,g+rx,o+rx
 
-- name: Copy ssh publickey
-  ansible.builtin.copy:
+- name: Read content of the file
+  ansible.builtin.slurp:
     src: /var/lib/foreman-proxy/ssh/id_rsa_foreman_proxy.pub
-    dest: /tmp/
-    remote_src: true
-    mode: u+rw,g+rw,o+rw
+  register: foreman_proxy_ssh_pub_key
 
 - name: Read ssh publickey
   ansible.builtin.set_fact:
-    foreman_proxy_ssh_pub_key_content: "{{ lookup('ansible.builtin.file', '/tmp/id_rsa_foreman_proxy.pub') }}"
+    foreman_proxy_ssh_pub_key_content: "{{ foreman_proxy_ssh_pub_key['content'] | b64decode }}"
 
 - name: Remove temp access
   ansible.builtin.file:
