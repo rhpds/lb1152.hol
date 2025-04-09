@@ -35,3 +35,9 @@
     regexp: ".*User ec2-user$"
     line: "  User root"
     path: /root/.ssh/config
+
+- name: Remove entry from authorized_keys
+  ansible.builtin.lineinfile:
+    path: /root/.ssh/authorized_keys
+    regexp: '^no-port-forwarding.*'
+    state: absent

@@ -26,6 +26,14 @@
     line: "  User root"
     path: /root/.ssh/config
 
+- name: Copy ansible.cfg
+  ansible.builtin.copy:
+    src: ansible.cfg
+    dest: /etc/foreman-proxy/ansible.cfg
+    owner: root
+    group: foreman-proxy
+    mode: u+rw,g+rw,o+r
+
 - name: Set temp access
   ansible.builtin.file:
     path: /var/lib/foreman-proxy/ssh
