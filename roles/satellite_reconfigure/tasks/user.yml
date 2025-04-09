@@ -26,42 +26,42 @@
     line: "  User root"
     path: /root/.ssh/config
 
-- name: Set temp access
-  ansible.builtin.file:
-    path: /var/lib/foreman-proxy/ssh
-    state: directory
-    mode: u+rwx,g+rx,o+rx
+# - name: Set temp access
+#   ansible.builtin.file:
+#     path: /var/lib/foreman-proxy/ssh
+#     state: directory
+#     mode: u+rwx,g+rx,o+rx
 
-- name: copy ssh publickey
-  ansible.builtin.copy:
-    src: /var/lib/foreman-proxy/ssh/id_rsa_foreman_proxy.pub
-    dest: /tmp/
-    mode: u+rw,g+rw,o+rw
+# - name: copy ssh publickey
+#   ansible.builtin.copy:
+#     src: /var/lib/foreman-proxy/ssh/id_rsa_foreman_proxy.pub
+#     dest: /tmp/
+#     mode: u+rw,g+rw,o+rw
 
-- name: Read ssh publickey
-  ansible.builtin.set_fact:
-    foreman_proxy_ssh_pub_key_content: "{{ lookup('ansible.builtin.file', '/tmp/id_rsa_foreman_proxy.pub') }}"
+# - name: Read ssh publickey
+#   ansible.builtin.set_fact:
+#     foreman_proxy_ssh_pub_key_content: "{{ lookup('ansible.builtin.file', '/tmp/id_rsa_foreman_proxy.pub') }}"
 
-- name: Remove temp access
-  ansible.builtin.file:
-    path: /var/lib/foreman-proxy/ssh
-    state: directory
-    mode: u+rwx,g-rx,o-rx
+# - name: Remove temp access
+#   ansible.builtin.file:
+#     path: /var/lib/foreman-proxy/ssh
+#     state: directory
+#     mode: u+rwx,g-rx,o-rx
 
-- name: Print key
-  ansible.builtin.debug:
-    msg: "{{ foreman_proxy_ssh_pub_key_content }}"
+# - name: Print key
+#   ansible.builtin.debug:
+#     msg: "{{ foreman_proxy_ssh_pub_key_content }}"
 
-- name: Inset publickey in authorized_keys
-  ansible.builtin.lineinfile:
-    path: /root/.ssh/authorized_keys
-    insertafter: 'EOF'
-    line: "{{ foreman_proxy_ssh_pub_key_content }}"
-  delegate_to: "{{ groups['nodes'][0] }}"
+# - name: Inset publickey in authorized_keys
+#   ansible.builtin.lineinfile:
+#     path: /root/.ssh/authorized_keys
+#     insertafter: 'EOF'
+#     line: "{{ foreman_proxy_ssh_pub_key_content }}"
+#   delegate_to: "{{ groups['nodes'][0] }}"
 
-- name: Inset publickey in authorized_keys
-  ansible.builtin.lineinfile:
-    path: /root/.ssh/authorized_keys
-    insertafter: 'EOF'
-    line: "{{ foreman_proxy_ssh_pub_key_content }}"
-  delegate_to: "{{ groups['nodes'][1] }}"
+# - name: Inset publickey in authorized_keys
+#   ansible.builtin.lineinfile:
+#     path: /root/.ssh/authorized_keys
+#     insertafter: 'EOF'
+#     line: "{{ foreman_proxy_ssh_pub_key_content }}"
+#   delegate_to: "{{ groups['nodes'][1] }}"
