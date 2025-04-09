@@ -1,4 +1,15 @@
 ---
+- name: Read content of the file
+  ansible.builtin.slurp:
+    src: "/home/{{ lb1152_hol_node_config_lab_user }}/.ssh/authorized_keys"
+  register: r_authorized_keys
+
+- name: Copy authorized_keys
+  ansible.builtin.lineinfile:
+    path: /root/.ssh/authorized_keys
+    insertafter: 'EOF'
+    line: "{{ r_authorized_keys['content'] | b64decode }}"
+
 - name: Copy SSH files
   ansible.builtin.copy:
     src: "/home/{{ lb1152_hol_node_config_lab_user }}/.ssh/{{ item }}"
@@ -7,7 +18,6 @@
     owner: root
     group: root
   loop:
-    - authorized_keys
     - "{{ guid }}key.pub"
     - config
 
