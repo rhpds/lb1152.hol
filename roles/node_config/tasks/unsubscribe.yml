@@ -41,3 +41,8 @@
     dest: /etc/rhsm/rhsm.conf
     remote_src: true
     mode: "0644"
+
+- name: Remove katello facts files
+  ansible.builtin.file:
+    path: "/etc/rhsm/facts/katello.facts"
+    state: absent
