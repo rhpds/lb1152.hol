@@ -198,4 +198,3 @@
       ansible.builtin.command: "podman pull {{ lb1152_hol_satellite_reconfigure_iop_image_url }}"
 
   ignore_errors: yes
-  when: lb1152_hol_satellite_reconfigure_iop_download == "true"
