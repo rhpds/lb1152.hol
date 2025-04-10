@@ -13,7 +13,9 @@ lb1152_hol_satellite_reconfigure_user_name: admin
 lb1152_hol_satellite_reconfigure_user_password: <CHANGEME>
 
 # ----------------------------------------------------------------
-# Custom Variables
+# iop Variables
 # ----------------------------------------------------------------
 lb1152_hol_satellite_reconfigure_iop_download: false
+lb1152_hol_satellite_reconfigure_iop_image_path: <CHANGEME>
+lb1152_hol_satellite_reconfigure_iop_image_id_rm: <CHANGEME>
 lb1152_hol_satellite_reconfigure_iop_image_url: <CHANGEME>
