@@ -183,3 +183,19 @@
 
 - name: Refresh the manifest
   ansible.builtin.command: 'hammer subscription refresh-manifest --organization="Default Organization"'
+
+# Remove old iop image and download the new iop image
+- block:
+    - name: Remove the old iop tar file
+      ansible.builtin.file:
+        path: "{{ lb1152_hol_satellite_reconfigure_iop_image_path }}"
+        state: absent
+
+    - name: Remove existing iop image
+      ansible.builtin.command: "podman rmi {{ lb1152_hol_satellite_reconfigure_iop_image_id_rm }}"
+
+    - name: Download the new iop image
+      ansible.builtin.command: "podman pull {{ lb1152_hol_satellite_reconfigure_iop_image_url }}"
+
+  ignore_errors: yes
+  when: lb1152_hol_satellite_reconfigure_iop_download == "true"
