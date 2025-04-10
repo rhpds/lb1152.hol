@@ -11,3 +11,9 @@ lb1152_hol_satellite_reconfigure_external_fqdn: "{{ groups['satellites'][0].spli
 lb1152_hol_satellite_reconfigure_internal_fqdn: satellite.example.com
 lb1152_hol_satellite_reconfigure_user_name: admin
 lb1152_hol_satellite_reconfigure_user_password: <CHANGEME>
+
+# ----------------------------------------------------------------
+# Custom Variables
+# ----------------------------------------------------------------
+lb1152_hol_satellite_reconfigure_iop_download: false
+lb1152_hol_satellite_reconfigure_iop_image_url: <CHANGEME>
