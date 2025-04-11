@@ -16,5 +16,6 @@ lb1152_hol_satellite_reconfigure_user_password: <CHANGEME>
 # iop Variables
 # ----------------------------------------------------------------
 lb1152_hol_satellite_reconfigure_iop_image_path: <CHANGEME>
+lb1152_hol_satellite_reconfigure_iop_image_stage_url: <CHANGEME>
 lb1152_hol_satellite_reconfigure_iop_image_id_rm: <CHANGEME>
 lb1152_hol_satellite_reconfigure_iop_image_url: <CHANGEME>
