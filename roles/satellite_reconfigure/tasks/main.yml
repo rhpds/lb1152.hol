@@ -196,3 +196,9 @@
 
     - name: Download the new iop image
       ansible.builtin.command: "podman pull {{ lb1152_hol_satellite_reconfigure_iop_image_url }}"
+
+    - name: Tag the new iop image
+      ansible.builtin.command: "podman tag {{ lb1152_hol_satellite_reconfigure_iop_image_url }} {{ lb1152_hol_satellite_reconfigure_iop_image_stage_url }}"
+
+    - name: Remove the new iop image
+      ansible.builtin.command: "podman rmi {{ lb1152_hol_satellite_reconfigure_iop_image_url }}"
