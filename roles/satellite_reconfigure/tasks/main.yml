@@ -190,9 +190,11 @@
       ansible.builtin.file:
         path: "{{ lb1152_hol_satellite_reconfigure_iop_image_path }}"
         state: absent
+      ignore_errors: True
 
     - name: Remove existing iop image
       ansible.builtin.command: "podman rmi {{ lb1152_hol_satellite_reconfigure_iop_image_id_rm }}"
+      ignore_errors: True
 
     - name: Download the new iop image
       ansible.builtin.command: "podman pull {{ lb1152_hol_satellite_reconfigure_iop_image_url }}"
