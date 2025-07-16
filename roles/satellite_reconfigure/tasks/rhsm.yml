@@ -25,7 +25,7 @@
   ignore_errors: true
 
 - name: Register Nodes to RHSM
-  ansible.builtin.cmd: >-
+  ansible.builtin.command: >-
     subscription-manager register
     --org "{{ lb1152_hol_satellite_reconfigure_sat_org }}"
     --activationkey "{{ lb1152_hol_satellite_reconfigure_sat_activation_key }}"
