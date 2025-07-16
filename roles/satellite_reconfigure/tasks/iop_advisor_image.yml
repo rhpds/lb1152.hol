@@ -19,14 +19,7 @@
     password: "{{ lb1152_hol_satellite_reconfigure_registry_password }}"
 
 - name: Retag iop advisor image as latest
-  ansible.builtin.command:
-    cmd: >-
-      podman tag 
-      {{ lb1152_hol_satellite_reconfigure_iop_image }}:{{ lb1152_hol_satellite_reconfigure_iop_image_tag }}
-      {{ lb1152_hol_satellite_reconfigure_iop_image }}:latest
-
-# - name: Retag iop advisor image as latest
-#   containers.podman.podman_tag:
-#     image: "{{ lb1152_hol_satellite_reconfigure_iop_image }}:{{ lb1152_hol_satellite_reconfigure_iop_image_tag }}"
-#     target_names:
-#       - "{{ lb1152_hol_satellite_reconfigure_iop_image }}:latest"
+  containers.podman.podman_tag:
+    image: "{{ lb1152_hol_satellite_reconfigure_iop_image }}:{{ lb1152_hol_satellite_reconfigure_iop_image_tag }}"
+    target_names:
+      - "{{ lb1152_hol_satellite_reconfigure_iop_image }}:latest"
