@@ -8,8 +8,8 @@ lb1152_hol_node_config_lab_user: "{{ student_name }}"
 # ----------------------------------------------------------------
 # Satellite Variables
 # ----------------------------------------------------------------
-# lb1152_hol_node_subscription_type: (satellite/rhsm)
-lb1152_hol_node_subscription_type: satellite
+# lb1152_hol_node_config_subscription_type: (satellite/rhsm)
+lb1152_hol_node_config_subscription_type: satellite
 
 lb1152_hol_node_config_sat_hostname: <CHANGEME>
 lb1152_hol_node_config_sat_org: <CHANGEME>

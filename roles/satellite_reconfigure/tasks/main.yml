@@ -204,3 +204,8 @@
 
     - name: Remove the new iop image
       ansible.builtin.command: "podman rmi {{ lb1152_hol_satellite_reconfigure_iop_image_url }}"
+
+- name: Include RHSM subscription
+  when: "lb1152_hol_satellite_reconfigure_subscription_type == 'rhsm'"
+  ansible.builtin.include_tasks:
+    file: rhsm.yml

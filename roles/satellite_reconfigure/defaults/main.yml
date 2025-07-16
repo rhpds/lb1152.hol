@@ -13,6 +13,15 @@ lb1152_hol_satellite_reconfigure_user_name: admin
 lb1152_hol_satellite_reconfigure_user_password: <CHANGEME>
 
 # ----------------------------------------------------------------
+# Register satellite with RHSM
+# ----------------------------------------------------------------
+lb1152_hol_satellite_reconfigure_subscription_type: rhsm
+lb1152_hol_satellite_reconfigure_sat_org: "{{ lb1152_hol_node_config_sat_org }}"
+lb1152_hol_satellite_reconfigure_sat_activation_key: "{{ lb1152_hol_node_config_sat_activation_key }}"
+lb1152_hol_satellite_reconfigure_insights_org: "{{ lb1152_hol_node_config_insights_org }}"
+lb1152_hol_satellite_reconfigure_insights_activation_key: "{{ lb1152_hol_node_config_insights_activation_key }}"
+
+# ----------------------------------------------------------------
 # iop Variables
 # ----------------------------------------------------------------
 lb1152_hol_satellite_reconfigure_iop_image_path: <CHANGEME>
