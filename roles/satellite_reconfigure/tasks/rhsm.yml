@@ -12,6 +12,8 @@
     recurse: no
     patterns:
     - 'redhat-rhui*.repo'
+    - 'redhat-rhui*.repo.*'
+
   register: r_find_repos
 
 - name: Remove current RHUI repository files
