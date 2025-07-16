@@ -21,8 +21,14 @@
     file: unsubscribe.yml
 
 - name: Include register with private satellite
+  when: "lb1152_hol_node_subscription_type == 'satellite'"
   ansible.builtin.include_tasks:
     file: subscribe.yml
+
+- name: Include subscription with RHSM
+  when: "lb1152_hol_node_subscription_type == 'rhsm'"
+  ansible.builtin.include_tasks:
+    file: rhsm.yml
 
 - name: Include register with insights
   ansible.builtin.include_tasks:
