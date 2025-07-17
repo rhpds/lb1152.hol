@@ -22,4 +22,4 @@
   containers.podman.podman_tag:
     image: "{{ lb1152_hol_satellite_reconfigure_iop_image }}:{{ lb1152_hol_satellite_reconfigure_iop_image_tag }}"
     target_names:
-      - "{{ lb1152_hol_satellite_reconfigure_iop_image }}:latest"
+      - "{{ lb1152_hol_satellite_reconfigure_iop_stage_image }}:{{ lb1152_hol_satellite_reconfigure_iop_stage_image_tag }}"
