@@ -12,6 +12,15 @@ lb1152_hol_satellite_reconfigure_internal_fqdn: satellite.example.com
 lb1152_hol_satellite_reconfigure_user_name: admin
 lb1152_hol_satellite_reconfigure_user_password: <CHANGEME>
 
+
+# ----------------------------------------------------------------
+# Reconfigure satellite bool variables
+# ----------------------------------------------------------------
+lb1152_hol_satellite_reconfigure_reset_password: true
+lb1152_hol_satellite_reconfigure_update_hostname: true
+lb1152_hol_satellite_reconfigure_replace_manifest: true
+lb1152_hol_satellite_reconfigure_lecertificate: true
+
 # ----------------------------------------------------------------
 # Register satellite with RHSM
 # ----------------------------------------------------------------
