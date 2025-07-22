@@ -53,7 +53,7 @@
         force: yes
 
     - name: Remove old manifest
-      ansible.builtin.command: hammer subscription delete --organization "Default_Organization"
+      ansible.builtin.command: hammer subscription delete --organization "Default Organization"
       register: delete_result
       ignore_errors: true
       changed_when: "'Deleted' in delete_result.stdout"
@@ -61,7 +61,7 @@
     - name: Import the new manifest
       ansible.builtin.command: >
         hammer subscription upload
-        --organization "Default_Organization"
+        --organization "Default Organization"
         --file {{ lb1152_hol_satellite_reconfigure_manifest_dest }}
       register: import_result
       changed_when: "'uploaded' in import_result.stdout"
