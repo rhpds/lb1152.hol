@@ -74,3 +74,5 @@
 # This task must always run 
 - name: Refresh the manifest
   ansible.builtin.command: 'hammer subscription refresh-manifest --organization="Default Organization"'
+  retries: 10
+  delay: 30
