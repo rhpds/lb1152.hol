@@ -68,12 +68,12 @@
 
 - name: Retrieve LetsEncrypt R12 cert
   ansible.builtin.slurp:
-    src: "/etc/letsencrypt/live/{{ lb1152_hol_satellite_reconfigure_external_fqdn }}/r10.pem"
+    src: "/etc/letsencrypt/live/{{ lb1152_hol_satellite_reconfigure_external_fqdn }}/r12.pem"
   register: intermediate_cert_r12
 
 - name: Retrieve LetsEncrypt R13 cert
   ansible.builtin.slurp:
-    src: "/etc/letsencrypt/live/{{ lb1152_hol_satellite_reconfigure_external_fqdn }}/r11.pem"
+    src: "/etc/letsencrypt/live/{{ lb1152_hol_satellite_reconfigure_external_fqdn }}/r13.pem"
   register: intermediate_cert_r13
 
 - name: Retrieve LetsEncrypt root X1 cert
